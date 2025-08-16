@@ -1,6 +1,10 @@
 import { Router } from "express";
 import {
-  getAnnouncements, getAnnouncement, createAnnouncement, updateAnnouncement, deleteAnnouncement
+  getAnnouncements,
+  getAnnouncement,
+  createAnnouncement,
+  updateAnnouncement,
+  deleteAnnouncement
 } from "../controllers/announcements.controller.js";
 
 const router = Router();

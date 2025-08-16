@@ -4,6 +4,8 @@ const AnnouncementSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     content: { type: String, required: true },
+    sender: { type: String, required: true },
+    course: { type: String, required: true },
     date: { type: Date, default: () => new Date() },
     semester: { type: String, required: true }
   },

@@ -5,6 +5,7 @@ import { connectDB } from "./db.js";
 import announcementsRoutes from "./routes/announcements.routes.js";
 import quizzesRoutes from "./routes/quizzes.routes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
+import { seedDatabase } from "./seedData.js";
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,9 @@ app.use(errorHandler);
 const port = process.env.PORT || 5000;
 const uri = process.env.MONGODB_URI;
 
-connectDB(uri).then(() => {
+connectDB(uri).then(async () => {
+  // Seed the database with initial data
+  await seedDatabase();
+  
   app.listen(port, () => console.log(`✅ API running on http://localhost:${port}`));
 });
